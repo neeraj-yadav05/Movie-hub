@@ -1,1167 +1,736 @@
-/* ==========================================================================
-   MOVIE HUB - CINEMATIC PRODUCTION DESIGN SYSTEM
-   Strict Rule: No Emojis in any file.
-   ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* =========================================================
+   RESET
+========================================================= */
 
-:root {
-  /* Color System */
-  --bg-dark: #07090e;
-  --bg-surface: #0e121a;
-  --bg-card: #121722;
-  --bg-card-hover: #19202f;
-  --bg-input: rgba(18, 24, 38, 0.7);
-
-  --primary-red: #e50914;
-  --primary-red-hover: #ff1e27;
-  --primary-red-glow: rgba(229, 9, 20, 0.45);
-  --accent-gold: #f5c518;
-  --accent-gold-hover: #ffdb4d;
-  --accent-gold-glow: rgba(245, 197, 24, 0.35);
-
-  --text-pure: #ffffff;
-  --text-primary: #e6edf3;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.14);
-  --border-active: rgba(229, 9, 20, 0.65);
-
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-md: 0 12px 35px rgba(0, 0, 0, 0.65);
-  --shadow-glow: 0 14px 40px rgba(229, 9, 20, 0.32);
-
-  --font-heading: 'Outfit', 'Bebas Neue', sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ==========================================================================
-   RESET & GLOBAL BASE
-   ========================================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  color-scheme: dark;
+    scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg-dark);
-  background-image: 
-    radial-gradient(circle at 50% -10%, rgba(229, 9, 20, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 90% 80%, rgba(245, 197, 24, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 10% 40%, rgba(229, 9, 20, 0.08) 0%, transparent 45%);
-  background-attachment: fixed;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  -webkit-font-smoothing: antialiased;
+    font-family: "Inter", sans-serif;
+    background: #050505;
+    color: #f5f5f5;
 }
 
-::selection {
-  background: var(--primary-red);
-  color: #ffffff;
-}
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #080a0f;
-}
-::-webkit-scrollbar-thumb {
-  background: #232a3a;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-red);
-}
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-/* ==========================================================================
-   SITE HEADER & NAVIGATION
-   ========================================================================== */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8, 10, 15, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 16px 24px;
+    background: #050505;
+    border-bottom: 1px solid #202020;
 }
 
 .nav-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .brand-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  transition: transform var(--transition-fast);
+    text-decoration: none;
+    color: #fff;
+
+    font-size: 22px;
+    font-weight: 700;
 }
 
-.brand-logo:hover {
-  transform: scale(1.02);
-}
-
-.brand-logo-badge {
-  background: var(--primary-red);
-  color: #ffffff;
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  box-shadow: 0 0 15px var(--primary-red-glow);
-}
-
-.brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.55rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.brand-accent {
-  color: var(--primary-red);
+.brand-logo span {
+    color: #e50914;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+    display: flex;
+    gap: 28px;
 }
 
 .nav-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  padding: 6px 0;
-  position: relative;
-  transition: color var(--transition-fast);
+    text-decoration: none;
+    color: #888;
+    font-size: 14px;
+
+    transition: 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #ffffff;
+    color: #fff;
 }
 
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--primary-red);
-  border-radius: 2px;
-  box-shadow: 0 0 8px var(--primary-red-glow);
-}
 
-.api-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
+/* =========================================================
+   HOME PAGE
+========================================================= */
 
-.status-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 10px #10b981;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-/* Breadcrumbs (for movie details page) */
-.nav-breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.crumb-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.crumb-link:hover {
-  color: var(--primary-red);
-}
-
-.crumb-separator {
-  color: var(--text-muted);
-}
-
-.crumb-current {
-  color: #ffffff;
-}
-
-.back-home-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-glass);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  transition: all var(--transition-fast);
-}
-
-.back-home-btn:hover {
-  background: var(--primary-red);
-  border-color: var(--primary-red);
-  transform: translateX(-3px);
-  box-shadow: 0 4px 16px var(--primary-red-glow);
-}
-
-/* ==========================================================================
-   PAGE CONTENT WRAPPER
-   ========================================================================== */
 .page-content {
-  flex: 1;
-  max-width: 1300px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 25px 90px;
 }
 
-/* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
 .hero-section {
-  text-align: center;
-  max-width: 860px;
-  margin: 20px auto 60px;
+    max-width: 700px;
+    margin: 0 auto 80px;
+    text-align: center;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: rgba(229, 9, 20, 0.12);
-  border: 1px solid rgba(229, 9, 20, 0.35);
-  color: #ff5e67;
-  font-size: 0.84rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 6px 18px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-}
-
-.hero-headline {
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-weight: 900;
-  letter-spacing: 1px;
-  line-height: 1.1;
-  color: var(--text-pure);
-  margin-bottom: 18px;
-}
-
-.gradient-accent {
-  background: linear-gradient(135deg, #ffffff 45%, #ff2d38 85%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 25px rgba(229, 9, 20, 0.5));
+.hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .hero-description {
-  font-size: 1.12rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 680px;
-  margin: 0 auto 36px;
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 30px;
 }
 
-/* ==========================================================================
-   SEARCH FORM
-   ========================================================================== */
-#movieForm,
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
 .search-bar {
-  display: flex;
-  align-items: center;
-  max-width: 680px;
-  margin: 0 auto 32px;
-  padding: 6px 8px 6px 20px;
-  background: var(--bg-input);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
-  border-radius: 50px;
-  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: all var(--transition-smooth);
-}
+    width: 100%;
 
-#movieForm:focus-within,
-.search-bar:focus-within {
-  border-color: var(--border-active);
-  box-shadow: 0 12px 40px rgba(229, 9, 20, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+    display: flex;
+    gap: 10px;
+
+    padding: 7px;
+
+    background: #111;
+    border: 1px solid #282828;
+
+    border-radius: 8px;
 }
 
 .search-input-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
 }
 
-.input-svg-icon {
-  color: var(--text-muted);
-  flex-shrink: 0;
+.search-icon {
+    color: #777;
 }
 
-#movieInput {
-  flex: 1;
-  border: none;
-  background: transparent;
-  color: var(--text-pure);
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 500;
-  outline: none;
-  padding: 12px 10px 12px 0;
-  letter-spacing: 0.3px;
+.search-input-box input {
+    width: 100%;
+
+    padding: 12px;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #fff;
+
+    font-size: 14px;
 }
 
-#movieInput::placeholder {
-  color: var(--text-muted);
-  font-weight: 400;
+.search-input-box input::placeholder {
+    color: #666;
 }
 
-button,
 .search-submit-btn {
-  background: linear-gradient(135deg, var(--primary-red) 0%, #b20710 100%);
-  color: #ffffff;
-  border: none;
-  border-radius: 50px;
-  padding: 13px 32px;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  box-shadow: 0 4px 18px rgba(229, 9, 20, 0.4);
-  transition: all var(--transition-fast);
-  white-space: nowrap;
+    padding: 0 25px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #e50914;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
-button:hover,
 .search-submit-btn:hover {
-  background: linear-gradient(135deg, var(--primary-red-hover) 0%, var(--primary-red) 100%);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.65);
+    background: #f01823;
 }
 
-button:active,
-.search-submit-btn:active {
-  transform: translateY(1px) scale(0.98);
-}
 
-/* Trending Chips */
-.trending-chips {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.chips-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-}
-
-.chips-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-.chip-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-size: 0.84rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 50px;
-  cursor: pointer;
-  letter-spacing: 0.3px;
-  text-transform: none;
-  box-shadow: none;
-  transition: all var(--transition-fast);
-}
-
-.chip-btn:hover {
-  background: rgba(229, 9, 20, 0.15);
-  border-color: rgba(229, 9, 20, 0.5);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.2);
-}
-
-/* ==========================================================================
-   FEATURES SECTION
-   ========================================================================== */
-.features-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto 70px;
-}
-
-.feature-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 30px 24px;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-smooth);
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-glass);
-  box-shadow: var(--shadow-md);
-}
-
-.feature-tag {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--primary-red);
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.feature-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 10px;
-  letter-spacing: 0.3px;
-}
-
-.feature-desc {
-  font-size: 0.94rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   RESULTS & MOVIE GRID
-   ========================================================================== */
-.results-container {
-  margin-top: 20px;
-}
+/* =========================================================
+   RESULTS
+========================================================= */
 
 .results-header {
-  margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
 .section-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
+    font-size: 23px;
 }
 
 .section-subtitle {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+    color: #777;
+    font-size: 13px;
+    margin-top: 5px;
 }
 
-#movieHub,
 .catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 30px 24px;
-  min-height: 200px;
-  animation: gridFadeIn 0.6s ease-out;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
 }
 
-@keyframes gridFadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-/* Error message e.g. "Movie not found!" */
-#movieHub > p {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: #ff525d;
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding: 40px 20px;
-  background: rgba(229, 9, 20, 0.08);
-  border: 1px dashed rgba(229, 9, 20, 0.35);
-  border-radius: 16px;
-  margin: 20px auto;
-  max-width: 520px;
-  box-shadow: var(--shadow-sm);
-}
+/* =========================================================
+   MOVIE CARD
+========================================================= */
 
-/* ==========================================================================
-   MOVIE CARD (.movie-card)
-   ========================================================================== */
 .movie-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-smooth), 
-              border-color var(--transition-smooth), 
-              box-shadow var(--transition-smooth);
-  box-shadow: var(--shadow-sm);
+    background: #111;
+
+    border: 1px solid #242424;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: var(--border-active);
-  box-shadow: var(--shadow-glow), 0 20px 40px rgba(0, 0, 0, 0.7);
+    transform: translateY(-4px);
+    border-color: #e50914;
 }
 
 .movie-card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  background: #151a24;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
+    width: 100%;
+    height: 330px;
 
-.movie-card:hover img {
-  transform: scale(1.06);
-}
+    object-fit: cover;
 
-.movie-card > div,
-.movie-card > div > div {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    display: block;
 }
 
 .movie-card p {
-  padding: 0 16px;
+    padding: 12px 14px;
+
+    color: #eee;
+
+    font-size: 14px;
 }
 
-/* Movie Title */
-.movie-card p:first-of-type {
-  color: var(--text-pure);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.3px;
-  margin-top: 14px;
-  line-height: 1.35;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  transition: color var(--transition-fast);
-}
 
-.movie-card:hover p:first-of-type {
-  color: var(--primary-red-hover);
-}
+/* =========================================================
+   FOOTER
+========================================================= */
 
-/* Release Year */
-.movie-card p:last-of-type {
-  color: var(--accent-gold);
-  font-weight: 700;
-  font-size: 0.88rem;
-  padding-bottom: 16px;
-  margin-top: 6px;
-  letter-spacing: 0.4px;
-}
-
-.movie-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 65%, rgba(7, 9, 14, 0.95) 100%);
-  pointer-events: none;
-  opacity: 0.8;
-  transition: opacity var(--transition-fast);
-}
-
-.movie-card:hover::after {
-  opacity: 0.35;
-}
-
-/* ==========================================================================
-   ANIMATED LOADER
-   ========================================================================== */
-.loader {
-  grid-column: 1 / -1;
-  justify-self: center;
-  align-self: center;
-  margin: 60px auto;
-  width: fit-content;
-  font-size: 42px;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--primary-red);
-  background:
-    radial-gradient(0.71em at 50% 1em, var(--primary-red) 99%, transparent 101%) calc(50% - 1em) 1em/2em 200% repeat-x text,
-    radial-gradient(0.71em at 50% -0.5em, transparent 99%, var(--primary-red) 101%) 50% 1.5em/2em 200% repeat-x text;
-  animation:
-    l10-0 0.8s linear infinite alternate,
-    l10-1 4s linear infinite;
-  filter: drop-shadow(0 0 15px rgba(229, 9, 20, 0.6));
-}
-
-.loader::before {
-  content: "Searching Cinema";
-}
-
-@keyframes l10-0 {
-  to { background-position-x: 50%, calc(50% + 1em); }
-}
-
-@keyframes l10-1 {
-  to { background-position-y: -0.5em, 0; }
-}
-
-/* ==========================================================================
-   MOVIE DETAILS PAGE (#movieDetails)
-   ========================================================================== */
-.details-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.inline-back-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.92rem;
-  transition: color var(--transition-fast);
-}
-
-.inline-back-link:hover {
-  color: var(--primary-red);
-}
-
-.catalog-badge {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 50px;
-}
-
-#movieDetails,
-.details-card-container {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  column-gap: 46px;
-  row-gap: 24px;
-  max-width: 1120px;
-  margin: 0 auto;
-  background: rgba(18, 24, 38, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-glass);
-  border-radius: 24px;
-  padding: 44px;
-  box-shadow: var(--shadow-md), 0 0 40px rgba(229, 9, 20, 0.2);
-  animation: detailsFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes detailsFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Poster */
-#movieDetails > div:nth-child(1) {
-  grid-column: 1;
-  grid-row: 1 / span 8;
-  position: sticky;
-  top: 90px;
-}
-
-#movieDetails > div:nth-child(1) img {
-  width: 100%;
-  border-radius: 16px;
-  border: 2px solid rgba(229, 9, 20, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(229, 9, 20, 0.25);
-  display: block;
-  object-fit: cover;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-}
-
-#movieDetails > div:nth-child(1) img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 9, 20, 0.4);
-}
-
-/* Right column items */
-#movieDetails > div:not(:nth-child(1)) {
-  grid-column: 2;
-}
-
-/* Movie Title */
-#movieDetails h2 {
-  font-family: var(--font-heading);
-  color: var(--text-pure);
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  line-height: 1.15;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #ffffff 60%, var(--primary-red) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
-}
-
-/* Released / Rated / Runtime / Rating chips */
-#movieDetails > div:nth-child(2) section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
-}
-
-#movieDetails > div:nth-child(2) section p {
-  background: rgba(245, 197, 24, 0.1);
-  border: 1px solid rgba(245, 197, 24, 0.35);
-  color: var(--accent-gold);
-  border-radius: 50px;
-  padding: 5px 16px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: all var(--transition-fast);
-}
-
-#movieDetails > div:nth-child(2) section p:hover {
-  background: rgba(245, 197, 24, 0.2);
-  border-color: var(--accent-gold);
-  transform: translateY(-2px);
-}
-
-/* Plot Review Box */
-#movieDetails > div:nth-child(3) {
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid var(--primary-red);
-  border-radius: 0 14px 14px 0;
-  padding: 18px 22px;
-  margin: 8px 0;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-#movieDetails > div:nth-child(3) > p:first-child {
-  color: var(--accent-gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.82rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-#movieDetails > div:nth-child(3) > p:last-child {
-  color: #cbd5e1;
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
-
-/* Metadata Labels (Director, Writer, Actors, Language, Country) */
-#movieDetails section p:first-child {
-  color: var(--accent-gold);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-#movieDetails section p:last-child {
-  color: var(--text-pure);
-  font-size: 1.02rem;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-#movieDetails > div:nth-child(4) {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 14px 18px;
-}
-
-#movieDetails > div:nth-child(5) {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 14px 18px;
-}
-
-#movieDetails > div:nth-child(6),
-#movieDetails > div:nth-child(7) {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 12px 18px;
-  margin-right: 12px;
-  min-width: 180px;
-}
-
-#movieDetails > div:nth-child(8),
-#movieDetails > div:last-child {
-  margin-top: 14px;
-}
-
-#movieDetails button {
-  background: linear-gradient(135deg, #f5c518 0%, #e2b616 100%);
-  border-radius: 50px;
-  padding: 0;
-  box-shadow: 0 6px 20px rgba(245, 197, 24, 0.35);
-  transition: all var(--transition-fast);
-}
-
-#movieDetails button:hover {
-  background: linear-gradient(135deg, #ffd83b 0%, #f5c518 100%);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(245, 197, 24, 0.55);
-}
-
-#movieDetails button a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 34px;
-  color: #000000;
-  font-weight: 800;
-  font-size: 1rem;
-  letter-spacing: 0.6px;
-  text-decoration: none;
-}
-
-/* ==========================================================================
-   REAL PRODUCTION FOOTER
-   ========================================================================== */
 .site-footer {
-  background: #05070a;
-  border-top: 1px solid var(--border-subtle);
-  margin-top: auto;
-  padding-top: 60px;
+    background: #050505;
+    border-top: 1px solid #202020;
 }
 
-.footer-top-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 24px 50px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+
+    padding: 40px 25px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 40px;
 }
 
-.brand-column {
-  max-width: 380px;
+.footer-brand {
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.footer-logo {
-  margin-bottom: 16px;
+.footer-brand span {
+    color: #e50914;
 }
 
-.footer-bio {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  margin-bottom: 22px;
+.footer-description {
+    max-width: 350px;
+    margin-top: 8px;
+
+    color: #777;
+    font-size: 13px;
 }
 
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+.footer-info {
+    color: #666;
+    font-size: 12px;
+    text-align: right;
 }
 
-.social-icon {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  padding: 6px 14px;
-  border-radius: 50px;
-  transition: all var(--transition-fast);
+
+/* =========================================================
+   =========================================================
+   MOVIE DETAILS PAGE
+   =========================================================
+========================================================= */
+
+.details-page {
+    min-height: calc(100vh - 65px);
+
+    padding: 45px 20px 80px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(229, 9, 20, 0.08),
+            transparent 35%
+        ),
+        #050505;
 }
 
-.social-icon:hover {
-  color: #ffffff;
-  border-color: var(--primary-red);
-  background: rgba(229, 9, 20, 0.12);
-}
 
-.footer-heading {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-.footer-nav {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.back-btn {
+    display: block;
 
-.footer-nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.92rem;
-  transition: color var(--transition-fast);
-}
-
-.footer-nav a:hover {
-  color: var(--primary-red);
-}
-
-.footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 24px 20px;
-  background: #030406;
-}
-
-.bottom-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-  text-align: center;
-}
-
-.copyright-text {
-  font-size: 0.9rem;
-  color: var(--text-primary);
-}
-
-.disclaimer-text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  max-width: 860px;
-  line-height: 1.5;
-}
-
-.status-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  color: #10b981;
-  font-weight: 600;
-}
-
-.live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (TABLETS & MOBILE)
-   ========================================================================== */
-@media (max-width: 992px) {
-  .footer-top-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
-
-  .brand-column {
-    grid-column: 1 / -1;
+    width: 1080px;
     max-width: 100%;
-  }
 
-  #movieDetails,
-  .details-card-container {
-    grid-template-columns: 1fr;
-    padding: 32px 24px;
-    gap: 24px;
-  }
+    margin: 0 auto 18px;
 
-  #movieDetails > div:nth-child(1) {
-    grid-column: 1;
-    grid-row: auto;
-    position: static;
-  }
+    color: #999;
 
-  #movieDetails > div:nth-child(1) img {
-    max-width: 280px;
-    margin: 0 auto;
-  }
+    text-decoration: none;
 
-  #movieDetails > div:not(:nth-child(1)) {
-    grid-column: 1;
-  }
+    font-size: 13px;
+
+    transition: 0.2s ease;
 }
+
+.back-btn:hover {
+    color: #e50914;
+}
+
+
+/* =========================================================
+   MAIN MOVIE BOX
+========================================================= */
+
+#movieDetails {
+    width: 1080px;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding: 42px;
+
+    background: #11131a;
+
+    border: 1px solid #292c35;
+
+    border-radius: 20px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   REMOVE THE OLD FLOAT APPROACH
+========================================================= */
+
+#movieDetails > img {
+    float: none;
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+#movieDetails img {
+    width: 330px;
+
+    height: 480px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 15px;
+
+    border: 2px solid #e50914;
+
+    box-shadow:
+        0 10px 35px rgba(229, 9, 20, 0.18);
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   THE MOVIE CONTENT SHOULD SIT BESIDE THE POSTER
+========================================================= */
+
+/*
+   The poster occupies 330px.
+   Everything else gets the remaining space.
+
+   This removes the giant empty area beside the poster.
+*/
+
+#movieDetails {
+    display: grid;
+
+    grid-template-columns: 330px minmax(0, 1fr);
+
+    column-gap: 45px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+#movieDetails h1 {
+    color: #fff;
+
+    font-size: 44px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    margin: 2px 0 16px;
+}
+
+
+/* =========================================================
+   TOP INFORMATION
+========================================================= */
+
+#movieDetails h1 + p {
+    color: #e50914;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GENERAL TEXT
+========================================================= */
+
+#movieDetails p {
+    color: #b1b4bd;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PLOT
+========================================================= */
+
+#movieDetails p:nth-of-type(2) {
+    background: #171922;
+
+    border-left: 4px solid #e50914;
+
+    border-radius: 0 10px 10px 0;
+
+    padding: 18px 20px;
+
+    margin: 26px 0 22px;
+
+    color: #b8bbc4;
+
+    line-height: 1.8;
+}
+
+
+/* PLOT TITLE */
+
+#movieDetails p:nth-of-type(2)::before {
+    content: "PLOT REVIEW";
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #e50914;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   DETAILS AREA
+========================================================= */
+
+/*
+   DO NOT style every div anymore.
+
+   Only the actual detail boxes are styled.
+*/
+
+#movieDetails > div {
+    background: transparent;
+
+    border: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   DIRECTOR + WRITER
+========================================================= */
+
+#movieDetails > div:nth-of-type(1),
+#movieDetails > div:nth-of-type(2) {
+
+    display: inline-block;
+
+    vertical-align: top;
+
+    width: calc(50% - 8px);
+
+    min-height: 76px;
+
+    padding: 14px 18px;
+
+    background: #151820;
+
+    border: 1px solid #272b35;
+
+    border-radius: 10px;
+
+    margin-top: 12px;
+}
+
+
+/* WRITER BOX */
+
+#movieDetails > div:nth-of-type(2) {
+    margin-left: 12px;
+}
+
+
+/* =========================================================
+   ACTORS / LANGUAGE / COUNTRY
+========================================================= */
+
+#movieDetails > div:nth-of-type(3),
+#movieDetails > div:nth-of-type(4),
+#movieDetails > div:nth-of-type(5) {
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding: 14px 18px;
+
+    background: #151820;
+
+    border: 1px solid #272b35;
+
+    border-radius: 10px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   DETAIL LABEL
+========================================================= */
+
+#movieDetails > div strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #e50914;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DETAIL VALUE
+========================================================= */
+
+#movieDetails > div {
+
+    color: #ddd;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   IMDb BUTTON
+========================================================= */
+
+#movieDetails a {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 28px;
+
+    background: #e50914;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+
+    box-shadow:
+        0 8px 25px rgba(229, 9, 20, 0.22);
+}
+
+#movieDetails a:hover {
+    background: #f01823;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    #movieDetails {
+        grid-template-columns: 270px minmax(0, 1fr);
+
+        column-gap: 30px;
+
+        padding: 30px;
+    }
+
+    #movieDetails img {
+        width: 270px;
+        height: 400px;
+    }
+
+    #movieDetails h1 {
+        font-size: 35px;
+    }
+}
+
 
 @media (max-width: 680px) {
-  .nav-links {
-    display: none;
-  }
 
-  .footer-top-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  .hero-headline {
-    font-size: 2.2rem;
-  }
+    .details-page {
+        padding: 30px 15px 60px;
+    }
 
-  #movieForm,
-  .search-bar {
-    flex-direction: column;
-    padding: 10px 14px;
-    border-radius: 20px;
-    gap: 10px;
-  }
+    #movieDetails {
+        display: block;
 
-  .search-input-box {
-    width: 100%;
-  }
+        padding: 25px;
+    }
 
-  #movieInput {
-    width: 100%;
-    text-align: center;
-    padding: 10px 4px;
-  }
+    #movieDetails img {
+        width: 230px;
+        height: 345px;
 
-  button,
-  .search-submit-btn {
-    width: 100%;
-    border-radius: 12px;
-    padding: 12px 20px;
-  }
+        margin: 0 auto 30px;
+    }
 
-  #movieHub,
-  .catalog-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 20px 16px;
-  }
+    #movieDetails h1 {
+        font-size: 30px;
+    }
 
-  .movie-card p {
-    padding: 0 12px;
-  }
+    #movieDetails > div:nth-of-type(1),
+    #movieDetails > div:nth-of-type(2) {
 
-  .movie-card p:first-of-type {
-    font-size: 1rem;
-  }
+        display: block;
 
-  #movieDetails,
-  .details-card-container {
-    padding: 20px 16px;
-    border-radius: 18px;
-  }
+        width: 100%;
 
-  #movieDetails > div:nth-child(6),
-  #movieDetails > div:nth-child(7) {
-    display: block;
-    margin-right: 0;
-    margin-bottom: 12px;
-    width: 100%;
-  }
+        margin-left: 0;
+    }
+}
 
-  #movieDetails button {
-    width: 100%;
-  }
 
-  #movieDetails button a {
-    width: 100%;
-  }
+@media (max-width: 450px) {
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-content {
+        padding: 50px 18px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    #movieDetails {
+        padding: 20px;
+    }
+
+    #movieDetails img {
+        width: 200px;
+        height: 300px;
+    }
+
+    #movieDetails h1 {
+        font-size: 26px;
+    }
 }
