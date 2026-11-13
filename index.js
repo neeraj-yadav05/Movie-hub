@@ -20,7 +20,7 @@ movieForm.addEventListener("submit", (e) => {
 
 async function searchMovie(movieName) {
 
-    movieHub.innerHTML = `<div class="loader"></div>`;  // for loader logo 
+    movieHub.innerHTML = `<div class="loader"></div>`;  // for loader logo
 
     let response = await fetch(
         `https://www.omdbapi.com/?apikey=4f223340&s=${movieName}`

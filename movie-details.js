@@ -71,11 +71,11 @@ function displayMovie(data){
         <div>
         <button>
        
-<a href="https://www.imdb.com/title/${data.imdbID}" target ="_blank" >
+<a href="https://www.imdb.com/title/${data.imdbID}" target ="_blank" >    
     View on IMDb
-</a>
+</a> 
          </button>
           </div> `
 }
 
-    
+    // target = blank is used so that when we click on imdbID it will get opened in new tab

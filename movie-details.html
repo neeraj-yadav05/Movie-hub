@@ -4,45 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Details - Movie HUB</title>
-    <!-- Modern Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Document</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="details-body">
-
-    <!-- Top Navigation Bar -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🎬</span>
-                <span class="logo-text">MOVIE<span class="logo-accent">HUB</span></span>
-            </a>
-            <a href="index.html" class="back-nav-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span>Back to Search</span>
-            </a>
+<body>
+    <h1>movie-detils</h1>
+    <!-- {
+    "Title": "Hello, My Name Is Doris",
+    "Year": "2016",
+    "Rated": "R",
+    "Released": "01 Apr 2016",
+    "Runtime": "90 min",
+    "Genre": "Comedy, Drama, Romance",
+    "Director": "Michael Showalter",
+    "Writer": "Laura Terruso, Michael Showalter",
+    "Actors": "Sally Field, Max Greenfield, Tyne Daly",
+    "Plot": "Doris Miller is a shy, eccentric 60-something woman, living alone following the death of her mother, whom she has lived with for her whole life. At the funeral, her brother Todd and his wife Cynthia try to persuade her to sell the house, especially the possessions, as she is a hoarder. Her only close friend is the fiery Roz, though she also gets along with Roz's granddaughter Vivian. On her way to work, where she has been doing data entry for decades, she meets new young co-worker John, with whom she is immediately infatuated. Empowered by self-improvement tapes, Doris decides to go after him..",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "3 wins & 11 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDYwMmEwNmYtZGQwYS00ODhjLTlmMmQtM2M3NTFmODQyOTAyXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+    "Ratings": [
+        {
+            "Source": "Internet Movie Database",
+            "Value": "6.6/10"
+        },
+        {
+            "Source": "Rotten Tomatoes",
+            "Value": "86%"
+        },
+        {
+            "Source": "Metacritic",
+            "Value": "63/100"
+        }
+    ],
+    "Metascore": "63",
+    "imdbRating": "6.6",
+    "imdbVotes": "23,690",
+    "imdbID": "tt3766394",
+    "Type": "movie",
+    "DVD": "N/A",
+    "BoxOffice": "$14,444,999",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+     
+    } -->
+    <div id="movieDetails">
+        <!-- <div>
+            <img src="${data.poster}" alt="">
         </div>
-    </header>
-
-    <main class="main-container details-container">
-        <!-- Movie Details Card container -->
-        <div id="movieDetails" class="movie-details-wrapper">
-            <!-- Content populated dynamically by movie-details.js -->
+        <div>
+            <h2>${data.title}</h2>
+            <section>
+                <p>${data.realese}</p>
+                <p>${data.rated}</p>
+                <p>${data.runTime}</p>
+                <p>${data.imdbRating}/10</p>
+            </section>
         </div>
-    </main>
+        <div>
+            <p>plot review</p>
+            <p>${data.Plot}</p>
+        </div>
+        <div>
+            <section>
+                <p>Director</p>
+                <p>${data.Director}</p>
+            </section>
+            <section>
+                <p>Writer</p>
+                <p>${data.Writer}</p>
+            </section>
+        </div>
 
-    <footer class="footer">
-        <p>© 2026 Movie HUB. Built for movie lovers. Data sourced from OMDb API.</p>
-    </footer>
+        <div>
+            <section>
+                <p>Actors</p>
+                <p>${data.Actors}</p>
+            </section>
+        </div>
+        <div>
+            <section>
+                <p>LANGUAGE</p>
+                <p>ENGLISH</p>
+            </section>
+        </div>
+        <div>
+            <section>
+                <p>COUNTRY</p>
+                <p>United states, america</p>
+            </section>
+        </div>
+ -->
 
+    </div>
     <script src="movie-details.js"></script>
+
 
 </body>
 
