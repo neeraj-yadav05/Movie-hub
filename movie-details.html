@@ -4,104 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Details - Movie HUB</title>
+    <meta name="description" content="View comprehensive movie details, ratings, plot review, director, and full cast on Movie HUB.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
-    <h1>movie-detils</h1>
-    <!-- {
-    "Title": "Hello, My Name Is Doris",
-    "Year": "2016",
-    "Rated": "R",
-    "Released": "01 Apr 2016",
-    "Runtime": "90 min",
-    "Genre": "Comedy, Drama, Romance",
-    "Director": "Michael Showalter",
-    "Writer": "Laura Terruso, Michael Showalter",
-    "Actors": "Sally Field, Max Greenfield, Tyne Daly",
-    "Plot": "Doris Miller is a shy, eccentric 60-something woman, living alone following the death of her mother, whom she has lived with for her whole life. At the funeral, her brother Todd and his wife Cynthia try to persuade her to sell the house, especially the possessions, as she is a hoarder. Her only close friend is the fiery Roz, though she also gets along with Roz's granddaughter Vivian. On her way to work, where she has been doing data entry for decades, she meets new young co-worker John, with whom she is immediately infatuated. Empowered by self-improvement tapes, Doris decides to go after him..",
-    "Language": "English",
-    "Country": "United States",
-    "Awards": "3 wins & 11 nominations total",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BNDYwMmEwNmYtZGQwYS00ODhjLTlmMmQtM2M3NTFmODQyOTAyXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-    "Ratings": [
-        {
-            "Source": "Internet Movie Database",
-            "Value": "6.6/10"
-        },
-        {
-            "Source": "Rotten Tomatoes",
-            "Value": "86%"
-        },
-        {
-            "Source": "Metacritic",
-            "Value": "63/100"
-        }
-    ],
-    "Metascore": "63",
-    "imdbRating": "6.6",
-    "imdbVotes": "23,690",
-    "imdbID": "tt3766394",
-    "Type": "movie",
-    "DVD": "N/A",
-    "BoxOffice": "$14,444,999",
-    "Production": "N/A",
-    "Website": "N/A",
-    "Response": "True"
-     
-    } -->
-    <div id="movieDetails">
-        <!-- <div>
-            <img src="${data.poster}" alt="">
+<body class="details-page-body">
+
+    <!-- =================================================================
+         TOP NAVIGATION BAR
+         ================================================================= -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-logo-badge">MH</span>
+                <span class="brand-name">MOVIE<span class="brand-accent">HUB</span></span>
+            </a>
+
+            <!-- Breadcrumb Navigation -->
+            <div class="nav-breadcrumbs">
+                <a href="index.html" class="crumb-link">Home</a>
+                <span class="crumb-separator">/</span>
+                <span class="crumb-current">Movie Details</span>
+            </div>
+
+            <!-- Back to Search Action -->
+            <div class="nav-actions">
+                <a href="index.html" class="back-home-btn">
+                    <span class="btn-arrow">&larr;</span>
+                    <span>Back to Search</span>
+                </a>
+            </div>
         </div>
-        <div>
-            <h2>${data.title}</h2>
-            <section>
-                <p>${data.realese}</p>
-                <p>${data.rated}</p>
-                <p>${data.runTime}</p>
-                <p>${data.imdbRating}/10</p>
-            </section>
-        </div>
-        <div>
-            <p>plot review</p>
-            <p>${data.Plot}</p>
-        </div>
-        <div>
-            <section>
-                <p>Director</p>
-                <p>${data.Director}</p>
-            </section>
-            <section>
-                <p>Writer</p>
-                <p>${data.Writer}</p>
-            </section>
+    </header>
+
+    <!-- =================================================================
+         MAIN CONTENT AREA
+         ================================================================= -->
+    <main class="page-content details-content-area">
+
+        <!-- Banner bar with quick back link -->
+        <div class="details-top-bar">
+            <a href="index.html" class="inline-back-link">
+                <span>&larr; Return to Movie Catalog</span>
+            </a>
+            <span class="catalog-badge">Cinematic Database</span>
         </div>
 
-        <div>
-            <section>
-                <p>Actors</p>
-                <p>${data.Actors}</p>
-            </section>
+        <!-- Movie Details Showcase (Populated dynamically by movie-details.js) -->
+        <div id="movieDetails" class="details-card-container">
+            <!-- Dynamic data will be injected here by movie-details.js -->
         </div>
-        <div>
-            <section>
-                <p>LANGUAGE</p>
-                <p>ENGLISH</p>
-            </section>
-        </div>
-        <div>
-            <section>
-                <p>COUNTRY</p>
-                <p>United states, america</p>
-            </section>
-        </div>
- -->
 
-    </div>
+    </main>
+
+    <!-- =================================================================
+         REAL PRODUCTION FOOTER
+         ================================================================= -->
+    <footer class="site-footer">
+        <div class="footer-top-container">
+            <!-- Brand & Mission Column -->
+            <div class="footer-column brand-column">
+                <div class="brand-logo footer-logo">
+                    <span class="brand-logo-badge">MH</span>
+                    <span class="brand-name">MOVIE<span class="brand-accent">HUB</span></span>
+                </div>
+                <p class="footer-bio">
+                    Movie HUB is a modern cinema discovery platform. Search movies, compare scores, view full cast lists, and track the entertainment world in real time.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon">GitHub</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon">Twitter / X</a>
+                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-icon">Discord</a>
+                </div>
+            </div>
+
+            <!-- Column 1: Explore -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Explore</h4>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Trending Movies</a></li>
+                    <li><a href="index.html">Top Rated Films</a></li>
+                    <li><a href="index.html">TV Series & Shows</a></li>
+                    <li><a href="index.html">Box Office Leaders</a></li>
+                    <li><a href="index.html">Cinema News</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Resources -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Resources</h4>
+                <ul class="footer-nav">
+                    <li><a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer">OMDb API Docs</a></li>
+                    <li><a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDb Official</a></li>
+                    <li><a href="index.html#features">Platform Features</a></li>
+                    <li><a href="index.html">Site Status</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal & Privacy -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Legal & Privacy</h4>
+                <ul class="footer-nav">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Content Disclaimer</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                    <li><a href="#">DMCA Notice</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright & Disclaimers Bar -->
+        <div class="footer-bottom-bar">
+            <div class="bottom-container">
+                <p class="copyright-text">
+                    &copy; 2026 <strong>Movie HUB, Inc.</strong> All rights reserved. Built for cinema enthusiasts.
+                </p>
+                <p class="disclaimer-text">
+                    Data and poster imagery are sourced from the OMDb API. Film titles, posters, trademarks, and associated imagery are the intellectual property of their respective production studios and copyright owners.
+                </p>
+                <div class="status-indicator">
+                    <span class="live-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script located cleanly at the bottom of the body -->
     <script src="movie-details.js"></script>
-
 
 </body>
 

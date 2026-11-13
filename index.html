@@ -4,39 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie HUB</title>
+    <title>Movie HUB - Discover & Explore Movies</title>
+    <meta name="description" content="Discover movies, TV shows, real-time IMDb ratings, cast details and high-resolution posters with Movie HUB.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-    <h1>movie hub</h1>
-    <div>
-        <form id="movieForm">
-            <input id="movieInput" type="text" placeholder="search movie(title,name etc...)">
-            <button> search</button>
-        </form>
-    </div>
-    <!-- "Search": [
-        {
-            "Title": "Shershaah",
-            "Year": "2021",
-            "imdbID": "tt10295212",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BZTAzNzg0OGUtZmY1My00Y2VmLTk2YzYtNDU3MjlmNzU5ZjE3XkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg"
-        } -->
-    <div id="movieHub">
-        <!-- <div>
-            <div>
-               
-                <img src="https://m.media-amazon.com/images/M/MV5BZTAzNzg0OGUtZmY1My00Y2VmLTk2YzYtNDU3MjlmNzU5ZjE3XkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg"> 
-            <p> Shershaah</p>
-            <p>2021</p>
+    <!-- =================================================================
+         TOP NAVIGATION BAR
+         ================================================================= -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="brand-logo-badge">MH</span>
+                <span class="brand-name">MOVIE<span class="brand-accent">HUB</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#quickPicks" class="nav-link">Trending</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <span class="api-status-badge">
+                    <span class="status-pulse"></span>
+                    OMDb API Connected
+                </span>
+            </div>
         </div>
-            </div> -->
-          <script src="movie-details.js"></script>
-        <script src="index.js"></script>
-      
+    </header>
+
+    <!-- =================================================================
+         MAIN CONTENT AREA
+         ================================================================= -->
+    <main class="page-content">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">Verified Cinema Database</div>
+            <h1 class="hero-headline">Find Your Next <span class="gradient-accent">Masterpiece</span></h1>
+            <p class="hero-description">
+                Explore real-time IMDb ratings, comprehensive cast breakdowns, verified plots, and high-resolution posters across cinema history.
+            </p>
+
+            <!-- Search Form (Required for index.js) -->
+            <form id="movieForm" class="search-bar">
+                <div class="search-input-box">
+                    <svg class="input-svg-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input id="movieInput" type="text" placeholder="Search movies, franchises, or actors..." autocomplete="off">
+                </div>
+                <button type="submit" class="search-submit-btn">Search</button>
+            </form>
+
+            <!-- Quick Suggestions (Fills input and submits without modifying JS) -->
+            <div class="trending-chips" id="quickPicks">
+                <span class="chips-label">Popular searches:</span>
+                <div class="chips-group">
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Avengers'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Avengers</button>
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Interstellar'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Interstellar</button>
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Batman'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Batman</button>
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Inception'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Inception</button>
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Oppenheimer'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Oppenheimer</button>
+                    <button type="button" class="chip-btn" onclick="document.getElementById('movieInput').value='Stranger Things'; document.getElementById('movieForm').dispatchEvent(new Event('submit'));">Stranger Things</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlights (Real Website Section) -->
+        <section class="features-section" id="features">
+            <div class="feature-card">
+                <div class="feature-tag">01</div>
+                <h3 class="feature-title">Real-Time Search</h3>
+                <p class="feature-desc">Instantly query millions of movie and series entries directly via the global OMDb database.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-tag">02</div>
+                <h3 class="feature-title">Verified Ratings</h3>
+                <p class="feature-desc">Check authentic IMDb, Rotten Tomatoes, and Metascore ratings before you press play.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-tag">03</div>
+                <h3 class="feature-title">Full Cast & Crew</h3>
+                <p class="feature-desc">Explore comprehensive director biographies, screenwriters, starring actors, and award tallies.</p>
+            </div>
+        </section>
+
+        <!-- Search Results Grid Section -->
+        <section class="results-container">
+            <div class="results-header">
+                <h2 class="section-title">Movie Catalog</h2>
+                <p class="section-subtitle">Click any movie card below to view its dedicated details page.</p>
+            </div>
+
+            <!-- Movie Hub Grid (Required for index.js) -->
+            <div id="movieHub" class="catalog-grid">
+                <!-- Movie cards or loader injected dynamically by index.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =================================================================
+         REAL PRODUCTION FOOTER
+         ================================================================= -->
+    <footer class="site-footer" id="about">
+        <div class="footer-top-container">
+            <!-- Brand & Mission Column -->
+            <div class="footer-column brand-column">
+                <div class="brand-logo footer-logo">
+                    <span class="brand-logo-badge">MH</span>
+                    <span class="brand-name">MOVIE<span class="brand-accent">HUB</span></span>
+                </div>
+                <p class="footer-bio">
+                    Movie HUB is a modern cinema discovery platform. Search movies, compare scores, view full cast lists, and track the entertainment world in real time.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon">GitHub</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon">Twitter / X</a>
+                    <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-icon">Discord</a>
+                </div>
+            </div>
+
+            <!-- Column 1: Explore -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Explore</h4>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Trending Movies</a></li>
+                    <li><a href="index.html">Top Rated Films</a></li>
+                    <li><a href="index.html">TV Series & Shows</a></li>
+                    <li><a href="index.html">Box Office Leaders</a></li>
+                    <li><a href="index.html">Cinema News</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Resources -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Resources</h4>
+                <ul class="footer-nav">
+                    <li><a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer">OMDb API Docs</a></li>
+                    <li><a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDb Official</a></li>
+                    <li><a href="#features">Platform Features</a></li>
+                    <li><a href="#quickPicks">Popular Tags</a></li>
+                    <li><a href="index.html">Site Status</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal & Privacy -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Legal & Privacy</h4>
+                <ul class="footer-nav">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Content Disclaimer</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                    <li><a href="#">DMCA Notice</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright & Disclaimers Bar -->
+        <div class="footer-bottom-bar">
+            <div class="bottom-container">
+                <p class="copyright-text">
+                    &copy; 2026 <strong>Movie HUB, Inc.</strong> All rights reserved. Built for cinema enthusiasts.
+                </p>
+                <p class="disclaimer-text">
+                    Data and poster imagery are sourced from the OMDb API. Film titles, posters, trademarks, and associated imagery are the intellectual property of their respective production studios and copyright owners.
+                </p>
+                <div class="status-indicator">
+                    <span class="live-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script located cleanly at the bottom of the body -->
+    <script src="index.js"></script>
+
 </body>
 
 </html>
