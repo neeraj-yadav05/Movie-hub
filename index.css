@@ -1,6 +1,6 @@
-/* ==========================================================================
-   MOVIE HUB - PREMIUM CINEMATIC DESIGN SYSTEM
-   ========================================================================== */
+
+   /* MOVIE HUB - PREMIUM CINEMATIC DESIGN SYSTEM */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
@@ -43,9 +43,9 @@
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ==========================================================================
-   RESET & GLOBAL BASE
-   ========================================================================== */
+
+   /* RESET & GLOBAL BASE */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -94,9 +94,9 @@ body {
   background: var(--primary-red);
 }
 
-/* ==========================================================================
-   HEADER / BRAND LOGO
-   ========================================================================== */
+
+   /* HEADER / BRAND LOGO */
+
 h1 {
   font-family: var(--font-heading);
   text-align: center;
@@ -137,9 +137,9 @@ h1::before {
   100% { transform: translateY(-4px) rotate(8deg); }
 }
 
-/* ==========================================================================
-   SEARCH FORM
-   ========================================================================== */
+
+   /* SEARCH FORM */
+
 #movieForm {
   display: flex;
   align-items: center;
@@ -211,9 +211,9 @@ button:active {
   transform: translateY(1px) scale(0.98);
 }
 
-/* ==========================================================================
-   SEARCH RESULTS GRID (#movieHub)
-   ========================================================================== */
+
+   /* SEARCH RESULTS GRID (#movieHub) */
+
 #movieHub {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -254,9 +254,9 @@ button:active {
   font-size: 1.4rem;
 }
 
-/* ==========================================================================
-   MOVIE CARD (.movie-card)
-   ========================================================================== */
+
+   /* MOVIE CARD (.movie-card) */
+
 .movie-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -357,9 +357,9 @@ button:active {
   opacity: 0.4;
 }
 
-/* ==========================================================================
-   ANIMATED LOADER
-   ========================================================================== */
+
+   /* ANIMATED LOADER */
+
 .loader {
   grid-column: 1 / -1;
   justify-self: center;
@@ -394,9 +394,9 @@ button:active {
   to { background-position-y: -0.5em, 0; }
 }
 
-/* ==========================================================================
-   MOVIE DETAILS PAGE (#movieDetails)
-   ========================================================================== */
+
+   /* MOVIE DETAILS PAGE (#movieDetails) */
+
 #movieDetails {
   display: grid;
   grid-template-columns: 340px 1fr;
@@ -620,9 +620,9 @@ button:active {
   font-weight: bold;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (TABLETS & MOBILE)
-   ========================================================================== */
+
+   /* RESPONSIVE DESIGN (TABLETS & MOBILE) */
+
 @media (max-width: 860px) {
   #movieDetails {
     grid-template-columns: 1fr;
